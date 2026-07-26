@@ -1,4 +1,23 @@
 {
-  "Nav": { "home": "HOME", "comparator": "COMPARATOR", "price": "PRICES", "theme": "Toggle theme", "language": "Switch language" },
-  "Home": { "eyebrow": "AOTR · Value Lab", "titleFirst": "Every trade.", "titleAccent": "Your advantage.", "description": "Your reference space for comparing AOTR value. Build offers, measure the difference and negotiate knowing exactly where you stand.", "comparator": "Open comparator", "prices": "Explore prices", "featureOneTitle": "Trade smarter", "featureOneText": "Compare both offers with current, clear values.", "featureTwoTitle": "Value intelligence", "featureTwoText": "Check prices in Keys, Scrolls and Viz.", "featureThreeTitle": "Decide with confidence", "featureThreeText": "See at a glance whether you win, lose or break even." }
+  "Nav": {
+    "home": "HOME",
+    "comparator": "COMPARATOR",
+    "price": "PRICES",
+    "theme": "Toggle theme",
+    "language": "Switch language"
+  },
+  "Home": {
+    "eyebrow": "AOTR · Value Lab",
+    "titleFirst": "Every trade.",
+    "titleAccent": "Your advantage.",
+    "description": "Your reference space for comparing AOTR value. Build offers, measure the difference and negotiate knowing exactly where you stand.",
+    "comparator": "Open comparator",
+    "prices": "Explore prices",
+    "featureOneTitle": "Trade smarter",
+    "featureOneText": "Compare both offers with current, clear values.",
+    "featureTwoTitle": "Value intelligence",
+    "featureTwoText": "Check prices in Keys, Scrolls and Viz.",
+    "featureThreeTitle": "Decide with confidence",
+    "featureThreeText": "See at a glance whether you win, lose or break even."
+  }
 }

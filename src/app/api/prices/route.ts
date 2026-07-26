@@ -6,5 +6,13 @@ export async function GET() {
     orderBy: { name: "asc" },
     include: { priceHistory: { orderBy: { recordedAt: "asc" }, take: 30 } },
   });
-  return Response.json(items.map((item) => ({ ...item, priceHistory: item.priceHistory.map((snapshot) => ({ ...snapshot, recordedAt: snapshot.recordedAt.toISOString() })) })));
+  return Response.json(
+    items.map((item) => ({
+      ...item,
+      priceHistory: item.priceHistory.map((snapshot) => ({
+        ...snapshot,
+        recordedAt: snapshot.recordedAt.toISOString(),
+      })),
+    })),
+  );
 }

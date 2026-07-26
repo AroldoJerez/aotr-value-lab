@@ -23,6 +23,6 @@ export async function GET() {
       taxGems: item.taxGems,
       taxGold: item.taxGold,
       existingAmount: item.existingAmount,
-    }))
+    })),
   );
 }

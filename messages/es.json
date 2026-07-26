@@ -1,4 +1,23 @@
 {
-  "Nav": { "home": "INICIO", "comparator": "COMPARADOR", "price": "PRECIOS", "theme": "Cambiar tema", "language": "Cambiar idioma" },
-  "Home": { "eyebrow": "AOTR · Value Lab", "titleFirst": "Cada trade.", "titleAccent": "Tu ventaja.", "description": "El espacio de referencia para comparar valor en AOTR. Construye ofertas, mide la diferencia y negocia sabiendo exactamente dónde estás parado.", "comparator": "Abrir comparador", "prices": "Explorar precios", "featureOneTitle": "Trade smarter", "featureOneText": "Compara ambas ofertas con valores actuales y claros.", "featureTwoTitle": "Value intelligence", "featureTwoText": "Consulta precios en Keys, Scrolls y Viz.", "featureThreeTitle": "Decide con confianza", "featureThreeText": "Detecta al instante si ganas, pierdes o quedas justo." }
+  "Nav": {
+    "home": "INICIO",
+    "comparator": "COMPARADOR",
+    "price": "PRECIOS",
+    "theme": "Cambiar tema",
+    "language": "Cambiar idioma"
+  },
+  "Home": {
+    "eyebrow": "AOTR · Value Lab",
+    "titleFirst": "Cada trade.",
+    "titleAccent": "Tu ventaja.",
+    "description": "El espacio de referencia para comparar valor en AOTR. Construye ofertas, mide la diferencia y negocia sabiendo exactamente dónde estás parado.",
+    "comparator": "Abrir comparador",
+    "prices": "Explorar precios",
+    "featureOneTitle": "Trade smarter",
+    "featureOneText": "Compara ambas ofertas con valores actuales y claros.",
+    "featureTwoTitle": "Value intelligence",
+    "featureTwoText": "Consulta precios en Keys, Scrolls y Viz.",
+    "featureThreeTitle": "Decide con confianza",
+    "featureThreeText": "Detecta al instante si ganas, pierdes o quedas justo."
+  }
 }

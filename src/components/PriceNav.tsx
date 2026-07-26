@@ -8,10 +8,7 @@ interface CurrencyNavProps {
   onChange: (mode: CurrencyMode) => void;
 }
 
-export default function CurrencyNav({
-  value,
-  onChange,
-}: CurrencyNavProps) {
+export default function CurrencyNav({ value, onChange }: CurrencyNavProps) {
   const button =
     "flex items-center gap-2 px-4 py-2 rounded-(--radius-sm) transition-all border";
 
@@ -23,12 +20,9 @@ export default function CurrencyNav({
 
   return (
     <div className="flex justify-center gap-3 py-3">
-
       <button
         onClick={() => onChange("keys")}
-        className={`${button} ${
-          value === "keys" ? active : inactive
-        }`}
+        className={`${button} ${value === "keys" ? active : inactive}`}
       >
         <KeyRound size={16} />
         Keys
@@ -36,9 +30,7 @@ export default function CurrencyNav({
 
       <button
         onClick={() => onChange("scrolls")}
-        className={`${button} ${
-          value === "scrolls" ? active : inactive
-        }`}
+        className={`${button} ${value === "scrolls" ? active : inactive}`}
       >
         <ScrollText size={16} />
         Scrolls
@@ -46,14 +38,11 @@ export default function CurrencyNav({
 
       <button
         onClick={() => onChange("viz")}
-        className={`${button} ${
-          value === "viz" ? active : inactive
-        }`}
+        className={`${button} ${value === "viz" ? active : inactive}`}
       >
         <Gem size={16} />
         Viz
       </button>
-
     </div>
   );
 }

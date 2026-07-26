@@ -8,12 +8,15 @@ export interface Item {
   priceViz?: number;
 }
 
-export const getItemValue = (item: Item, currency: "keys" | "scrolls" | "viz") =>
+export const getItemValue = (
+  item: Item,
+  currency: "keys" | "scrolls" | "viz",
+) =>
   currency === "keys"
-    ? item.priceKeys ?? 0
+    ? (item.priceKeys ?? 0)
     : currency === "scrolls"
-      ? item.priceScrolls ?? 0
-      : item.priceViz ?? 0;
+      ? (item.priceScrolls ?? 0)
+      : (item.priceViz ?? 0);
 
 export const getCurrencyLabel = (currency: "keys" | "scrolls" | "viz") =>
   currency === "keys" ? "Keys" : currency === "scrolls" ? "Scrolls" : "Viz";
