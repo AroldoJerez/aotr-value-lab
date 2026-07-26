@@ -37,13 +37,38 @@
 }
 
 :root[data-theme="light"] {
-  --backgroundPage: #e8e0dd;
-  --backgroundComparator: #f6f0ee;
-  --cardSurface: #fffafa;
-  --textPrimary: #2b1a1e;
+  --backgroundPage: #ede6e3; /* antes #e8e0dd — casi igual, mantiene tu base */
+  --backgroundComparator: #f8f4f2; /* levemente más clara para separar del page */
+  --cardSurface: #ffffff; /* blanco puro, no #fffafa — más salto vs el fondo */
+  --textPrimary: #241318; /* un poco más oscuro para más contraste */
   --textHighlight: #1f1215;
-  --textSecondary: rgba(65, 42, 47, 0.78);
+  --textSecondary: rgba(65, 42, 47, 0.9); /* subí de .78 a .9 */
   --accentMain: #9b3040;
   --accentBright: #b51f3a;
   --alert: #b44930;
+}
+
+.item-avatar {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.item-glow {
+  background: radial-gradient(
+    circle at 50% 25%,
+    rgba(255, 72, 97, 0.14),
+    transparent 45%
+  );
+}
+
+html[data-theme="light"] .item-avatar {
+  background: rgba(155, 48, 64, 0.12);
+  border-color: rgba(155, 48, 64, 0.5) !important;
+}
+
+html[data-theme="light"] .item-glow {
+  background: radial-gradient(
+    circle at 50% 25%,
+    rgba(155, 48, 64, 0.07),
+    transparent 45%
+  );
 }

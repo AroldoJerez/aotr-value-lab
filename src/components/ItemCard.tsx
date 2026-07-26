@@ -29,9 +29,9 @@ export function ItemCardPreview({
     <div
       className={`item-card bg-card-gradient relative flex aspect-square w-full flex-col overflow-hidden rounded-(--radius-md) border border-(--accentMain) p-2 pb-0.5 select-none ${className}`}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_25%,rgba(255,72,97,.14),transparent_45%)]" />
+      <div className="item-glow pointer-events-none absolute inset-0" />
       <div className="relative flex min-h-12 items-center justify-center overflow-hidden rounded-sm">
-        <div className="flex size-10 items-center justify-center rounded-full border border-(--accentMain)/70 bg-black/20 shadow-[0_0_18px_rgba(190,24,48,.2)]">
+        <div className="item-avatar flex size-10 items-center justify-center rounded-full border border-(--accentMain)/70 shadow-[0_0_18px_rgba(190,24,48,.2)]">
           <span className="text-[10px] font-bold text-(--textHighlight)">
             {item.name.slice(0, 2).toUpperCase()}
           </span>
