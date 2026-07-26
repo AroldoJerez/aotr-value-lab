@@ -202,7 +202,7 @@ export default function ComparatorSlots(props: Props) {
           </div>
         ) : (
           <div className="rounded-lg border border-(--accentMain) bg-(--accentMain) px-3 py-2 text-sm text-white">
-            Añade ítems a ambas ofertas
+            Arrastra ítems a ambas ofertas
           </div>
         )}
       </div>
