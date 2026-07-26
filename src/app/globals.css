@@ -181,15 +181,15 @@ html[data-theme="light"] .theme-moon {
   display: block;
 }
 html[data-theme="light"] .ambient-video {
-  opacity: 0.16;
-  filter: blur(6px) brightness(1.2) saturate(0.45);
+  opacity: 0.32;
+  filter: blur(6px) brightness(1.05) saturate(0.55);
 }
 html[data-theme="light"] .ambient-vignette {
   background: linear-gradient(
     180deg,
-    rgba(250, 246, 244, 0.93) 0%,
-    rgba(239, 223, 222, 0.72) 48%,
-    rgba(245, 238, 235, 0.94) 100%
+    rgba(250, 246, 244, 0.82) 0%,
+    rgba(239, 223, 222, 0.55) 48%,
+    rgba(245, 238, 235, 0.84) 100%
   );
 }
 html[data-theme="light"] .ambient-mesh {
