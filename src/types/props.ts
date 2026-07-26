@@ -1,0 +1,1 @@
+export type CurrencyMode = "keys" | "scrolls" | "viz";

@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Item {
+  id             Int      @id @default(autoincrement())
+  name           String   @unique
+  rarity         String
+  demand         String?
+  value          String?
+  rateOfChange   String?
+  taxGems        String?
+  taxGold        String?
+  existingAmount Int?
+  imageUrl       String?
+  priceKeys      Int?
+  priceViz       Float?
+  priceScrolls   Float?
+  priceHistory   PriceSnapshot[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model PriceSnapshot {
+  id           Int      @id @default(autoincrement())
+  itemId       Int
+  priceKeys    Int?
+  priceViz     Float?
+  priceScrolls Float?
+  recordedAt   DateTime @default(now())
+  item         Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@index([itemId, recordedAt])
+}

@@ -1,0 +1,57 @@
+.slot {
+  width: 40%;
+  min-height: 150px;
+  background-color: #1a1618; /* fondo oscuro */
+  border: 2px dashed #be1830; /* carmesí */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.slotActive {
+  border-color: #ff003c; /* carmesí brillante */
+  box-shadow: 0 0 10px #ff003c;
+}
+
+.slotDragOver {
+  background-color: rgba(26, 22, 24, 0.9);
+  border-color: #ff3355;
+  box-shadow: 0 0 6px #ff3355;
+}
+
+.itemPill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(190, 24, 48, 0.1);
+  border: 1px solid #ff003c;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #ff003c;
+  animation: fadeIn 0.3s ease;
+}
+
+.itemRemove {
+  margin-left: 0.5rem;
+  color: #ff3355;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.total {
+  margin-top: 0.5rem;
+  color: #ff3355;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
