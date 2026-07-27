@@ -25,6 +25,7 @@ Comparador de trades en tiempo real: armá dos ofertas lado a lado, medí la dif
 ## 🛠️ Stack técnico
 
 **Frontend**
+
 - [Next.js 16](https://nextjs.org/) (App Router + Turbopack)
 - [React 19](https://react.dev/)
 - [Tailwind CSS 4](https://tailwindcss.com/)
@@ -33,64 +34,76 @@ Comparador de trades en tiempo real: armá dos ofertas lado a lado, medí la dif
 - [lucide-react](https://lucide.dev/) — iconografía
 
 **Backend / Datos**
+
 - [Prisma 7](https://www.prisma.io/) con `@prisma/adapter-pg`
 - [PostgreSQL](https://www.postgresql.org/) (hosteado en [Neon](https://neon.tech))
 - API Routes de Next.js
 
 **Integraciones**
+
 - [googleapis](https://github.com/googleapis/google-api-nodejs-client) — lectura de la Google Sheet pública de precios
 - [xlsx](https://www.npmjs.com/package/xlsx) — parseo de datos
 - Sync automatizado vía endpoint `/api/sync`
 
 **Infraestructura**
+
 - [Vercel](https://vercel.com/) — hosting y despliegue continuo
 - [Neon](https://neon.tech/) — Postgres serverless (free tier)
 
 ## 🚀 Getting started
 
 ### Requisitos previos
+
 - Node.js 20+
 - Una base de datos PostgreSQL (por ejemplo, un proyecto gratis en [Neon](https://neon.tech))
 
 ### 1. Cloná el repo
+
 ```bash
 git clone https://github.com/AroldoJerez/aotr-value-lab.git
 cd aotr-value-lab
 ```
 
 ### 2. Instalá las dependencias
+
 ```bash
 npm install
 ```
 
 ### 3. Configurá las variables de entorno
+
 Creá un archivo `.env` en la raíz con:
+
 ```dotenv
 DATABASE_URL="postgresql://usuario:password@host/db?sslmode=require&channel_binding=require"
 DIRECT_URL="postgresql://usuario:password@host-directo/db?sslmode=require&channel_binding=require"
 ```
+
 > `DATABASE_URL` es la conexión pooled (para runtime), `DIRECT_URL` es la conexión directa (para migraciones de Prisma).
 
 ### 4. Generá el cliente de Prisma y corré las migraciones
+
 ```bash
 npx prisma generate
 npx prisma migrate deploy
 ```
 
 ### 5. Levantá el servidor de desarrollo
+
 ```bash
 npm run dev
 ```
+
 Abrí [http://localhost:3000](http://localhost:3000).
 
 ## 📦 Scripts disponibles
 
-| Comando         | Descripción                                   |
-|-----------------|------------------------------------------------|
-| `npm run dev`   | Levanta el servidor de desarrollo (Turbopack)  |
+| Comando         | Descripción                                           |
+| --------------- | ----------------------------------------------------- |
+| `npm run dev`   | Levanta el servidor de desarrollo (Turbopack)         |
 | `npm run build` | Genera el cliente de Prisma y compila para producción |
-| `npm run start` | Corre el build de producción                   |
-| `npm run lint`  | Corre ESLint sobre el proyecto                  |
+| `npm run start` | Corre el build de producción                          |
+| `npm run lint`  | Corre ESLint sobre el proyecto                        |
 
 ## 🌐 Deploy
 
