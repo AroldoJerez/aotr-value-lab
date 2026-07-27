@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import DockNav from "@/components/Docknav";
 import AmbientVideoBackground from "@/components/AmbientVideoBackground";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 import type { Metadata } from "next";
 
