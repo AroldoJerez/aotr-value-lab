@@ -72,7 +72,18 @@ function parseValue(value?: string) {
       };
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const providedKey =
+    request.headers.get("x-sync-key") ??
+    new URL(request.url).searchParams.get("key");
+
+  if (!process.env.SYNC_SECRET || providedKey !== process.env.SYNC_SECRET) {
+    return new Response(JSON.stringify({ error: "No autorizado." }), {
+      status: 401,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
@@ -194,7 +205,8 @@ export async function GET() {
               });
               stats.created++;
             }
-          } catch {
+          } catch (err) {
+            console.error(`Error procesando "${name}":`, err);
             stats.errors++;
           }
           const completed = index + 1;
