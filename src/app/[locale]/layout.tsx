@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import DockNav from "@/components/Docknav";
 import AmbientVideoBackground from "@/components/AmbientVideoBackground";
+import Footer from "@/components/Footer";
 
 import type { Metadata } from "next";
 
@@ -35,6 +36,7 @@ export default async function LocaleLayout({
       <div className="relative z-10 min-h-screen bg-(--backgroundPage)/35">
         <DockNav />
         {children}
+        <Footer />
       </div>
     </NextIntlClientProvider>
   );
