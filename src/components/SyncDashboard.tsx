@@ -41,14 +41,26 @@ export default function SyncDashboard() {
   const [stats, setStats] = useState<Stats>(initialStats);
   const [finished, setFinished] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [password, setPassword] = useState("");
+  const [unauthorized, setUnauthorized] = useState(false);
+
   const sync = async () => {
+    if (!password) return;
     setRunning(true);
     setFinished(false);
     setFailed(false);
+    setUnauthorized(false);
     setProgress(0);
     setStats(initialStats);
     try {
-      const response = await fetch("/api/sync");
+      const response = await fetch("/api/sync", {
+        headers: { "x-sync-key": password },
+      });
+      if (response.status === 401) {
+        setUnauthorized(true);
+        setMessage("Contraseña incorrecta.");
+        return;
+      }
       if (!response.body)
         throw new Error("No se recibió progreso del servidor.");
       const reader = response.body.getReader();
@@ -101,24 +113,33 @@ export default function SyncDashboard() {
               cuando el precio de un ítem cambia.
             </p>
           </div>
-          <button
-            type="button"
-            disabled={running}
-            onClick={sync}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-(--accentBright) bg-(--accentMain) px-5 py-3 font-bold text-(--textHighlight) disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {running ? (
-              <LoaderCircle className="animate-spin" size={17} />
-            ) : (
-              <RefreshCw size={17} />
-            )}
-            {running ? "Sincronizando…" : "Iniciar sync"}
-          </button>
+          <div className="flex flex-col items-stretch gap-2 sm:items-end">
+            <input
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="Contraseña de sync"
+              className="rounded-md border border-(--accentMain)/65 bg-black/20 px-3 py-2 text-sm text-(--textHighlight) placeholder:text-(--textSecondary) focus:ring-2 focus:ring-(--accentBright) focus:outline-none"
+            />
+            <button
+              type="button"
+              disabled={running || !password}
+              onClick={sync}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-(--accentBright) bg-(--accentMain) px-5 py-3 font-bold text-(--textHighlight) disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {running ? (
+                <LoaderCircle className="animate-spin" size={17} />
+              ) : (
+                <RefreshCw size={17} />
+              )}
+              {running ? "Sincronizando…" : "Iniciar sync"}
+            </button>
+          </div>
         </div>
         <div className="mt-8 rounded-(--radius-md) border border-(--accentMain)/65 bg-black/15 p-5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-(--textHighlight)">
-              {failed ? (
+              {failed || unauthorized ? (
                 <TriangleAlert className="text-red-300" size={19} />
               ) : finished ? (
                 <CheckCircle2 className="text-emerald-300" size={19} />
@@ -133,7 +154,7 @@ export default function SyncDashboard() {
           </div>
           <div className="mt-4 h-3 overflow-hidden rounded-full border border-(--accentMain)/65 bg-black/35">
             <div
-              className={`h-full rounded-full transition-[width] duration-300 ${failed ? "bg-red-400" : finished ? "bg-emerald-400" : "bg-(--accentBright)"}`}
+              className={`h-full rounded-full transition-[width] duration-300 ${failed || unauthorized ? "bg-red-400" : finished ? "bg-emerald-400" : "bg-(--accentBright)"}`}
               style={{ width: `${progress}%` }}
             />
           </div>
