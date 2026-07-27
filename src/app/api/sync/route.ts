@@ -132,7 +132,11 @@ export async function GET(request: Request) {
             continue;
           }
           try {
-            const demand = row["Demand"];
+            const demandRaw = row["Demand"];
+            const demand =
+              demandRaw !== undefined && demandRaw !== ""
+                ? String(demandRaw)
+                : null;
             const value = row["Value"];
             const rateOfChange = row["Rate Of Change"];
             const taxGems = row["Tax (Gems)"];
@@ -145,7 +149,7 @@ export async function GET(request: Request) {
             const existing = await prisma.item.findUnique({ where: { name } });
             const itemData = {
               rarity,
-              demand: demand || null,
+              demand,
               value: value || null,
               rateOfChange: rateOfChange || null,
               taxGems: taxGems || null,
@@ -226,7 +230,8 @@ export async function GET(request: Request) {
           total: entries.length,
           stats,
         });
-      } catch {
+      } catch (err) {
+        console.error("Error general de sincronización:", err);
         send({
           type: "error",
           message: "No se pudo descargar o procesar la value list.",
